@@ -8,7 +8,7 @@ import {AaveV3Polygon} from 'aave-address-book/AaveV3Polygon.sol';
 import {IEmissionManager, ITransferStrategyBase, RewardsDataTypes, IEACAggregatorProxy} from '../src/interfaces/IEmissionManager.sol';
 import {BaseTest} from './utils/BaseTest.sol';
 
-import {ChangeLdoEmissionAdminPayload} from '../src/contracts/ChangeLdoEmissionAdminPayload.sol';
+import {ChangeStmaticEmissionAdminPayload} from '../src/contracts/ChangeStmaticEmissionAdminPayload.sol';
 
 contract EmissionTest is BaseTest {
   /// @dev Used to simplify the definition of a program of emissions
@@ -21,7 +21,7 @@ contract EmissionTest is BaseTest {
     uint256 emission;
   }
 
-  ChangeLdoEmissionAdminPayload public payload;
+  ChangeStmaticEmissionAdminPayload public payload;
   address constant GUARDIAN = 0xE50c8C619d05ff98b22Adf991F17602C774F785c;
   IEmissionManager constant EMISSION_MANAGER =
     IEmissionManager(0x048f2228D7Bf6776f99aB50cB1b1eaB4D1d4cA73);
@@ -37,7 +37,7 @@ contract EmissionTest is BaseTest {
   function setUp() public {
     vm.createSelectFork(vm.rpcUrl('polygon'), 35462470);
     /// @dev chains that are controlled by crosschain governance need to execute a proposal to set the emission admin
-    payload = new ChangeLdoEmissionAdminPayload();
+    payload = new ChangeStmaticEmissionAdminPayload();
     _setUp(AaveV3Polygon.ACL_ADMIN);
     _execute(address(payload));
 
@@ -48,8 +48,8 @@ contract EmissionTest is BaseTest {
   }
 
   function test_activation() public {
-    assertEq(EMISSION_MANAGER.getEmissionAdmin(payload.LDO()), 0x87D93d9B2C672bf9c9642d853a8682546a5012B5);
-    emit log_named_address('new emission admin for LDO rewards',EMISSION_MANAGER.getEmissionAdmin(payload.LDO()));
+    assertEq(EMISSION_MANAGER.getEmissionAdmin(payload.stMATIC()), 0x0c54a0BCCF5079478a144dBae1AFcb4FEdf7b263);
+    emit log_named_address('new emission admin for stMATIC rewards',EMISSION_MANAGER.getEmissionAdmin(payload.stMATIC()));
   }
 
   function _toUint88(uint256 value) internal pure returns (uint88) {

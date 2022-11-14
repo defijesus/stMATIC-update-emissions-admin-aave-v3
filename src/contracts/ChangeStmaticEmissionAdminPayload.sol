@@ -10,14 +10,14 @@ import {IProposalGenericExecutor} from '../interfaces/IProposalGenericExecutor.s
  * @dev Generic proposal to be executed via cross-chain governance.
  * Once executed this payload would add an EMISSION_ADMIN for a REWARD token on the specified EMISSION_MANAGER.
  */
-contract ChangeLdoEmissionAdminPayload is IProposalGenericExecutor {
+contract ChangeStmaticEmissionAdminPayload is IProposalGenericExecutor {
   address public constant EMISSION_MANAGER = 0x048f2228D7Bf6776f99aB50cB1b1eaB4D1d4cA73;
 
-  address public constant LDO = 0xC3C7d422809852031b44ab29EEC9F1EfF2A58756;
+  address public constant stMATIC = 0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4;
 
-  address public constant NEW_EMISSION_ADMIN = 0x87D93d9B2C672bf9c9642d853a8682546a5012B5;
+  address public constant NEW_EMISSION_ADMIN = 0x0c54a0BCCF5079478a144dBae1AFcb4FEdf7b263;
 
   function execute() public {
-    IEmissionManager(EMISSION_MANAGER).setEmissionAdmin(LDO, NEW_EMISSION_ADMIN);
+    IEmissionManager(EMISSION_MANAGER).setEmissionAdmin(stMATIC, NEW_EMISSION_ADMIN);
   }
 }
