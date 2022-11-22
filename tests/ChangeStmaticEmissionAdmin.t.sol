@@ -48,8 +48,13 @@ contract EmissionTest is BaseTest {
   }
 
   function test_activation() public {
+    // verify stMATIC
     assertEq(EMISSION_MANAGER.getEmissionAdmin(payload.stMATIC()), 0x0c54a0BCCF5079478a144dBae1AFcb4FEdf7b263);
     emit log_named_address('new emission admin for stMATIC rewards',EMISSION_MANAGER.getEmissionAdmin(payload.stMATIC()));
+
+    // verify maticX
+    assertEq(EMISSION_MANAGER.getEmissionAdmin(payload.maticX()), 0x0c54a0BCCF5079478a144dBae1AFcb4FEdf7b263);
+    emit log_named_address('new emission admin for maticX rewards',EMISSION_MANAGER.getEmissionAdmin(payload.maticX()));
   }
 
   function _toUint88(uint256 value) internal pure returns (uint88) {
