@@ -7,7 +7,7 @@ import {IProposalGenericExecutor} from '../interfaces/IProposalGenericExecutor.s
 /**
  * @title ChangeEmissionAdminPayload
  * @author Llama
- * @dev Setting new Emssion Admin for SD token in Aave V3 Polygon Liquidity Pool
+ * @dev Setting new Emssion Admin for stMATIC & MATICX token in Aave V3 Polygon Liquidity Pool
  * Governance Forum Post: https://governance.aave.com/t/arc-stmatic-maticx-emission-admin-for-polygon-v3-liquidity-pool/10632
  * Snapshot: https://snapshot.org/#/aave.eth/proposal/0x0a319a2b17cc04b804e74f71fb54c3c8a7c21f8c8925b9da72d92028be634bb2
  */
