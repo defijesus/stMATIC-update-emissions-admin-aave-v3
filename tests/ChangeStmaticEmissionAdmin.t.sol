@@ -14,8 +14,8 @@ contract ChangeEmissionAdminTest is BaseTest {
     IEmissionManager(0x048f2228D7Bf6776f99aB50cB1b1eaB4D1d4cA73);
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('polygon'), 35462470);
-    payload = new ChangeEmissionAdminPayload();
+    vm.createSelectFork(vm.rpcUrl('polygon'));
+    payload = ChangeEmissionAdminPayload(0x4A6F570E2eAf30b0E0C3E61c030DBcdcfbE94692);
     _setUp(AaveV3Polygon.ACL_ADMIN);
     _execute(address(payload));
   }
