@@ -9,7 +9,7 @@ contract DeployChangeEmissionAdmin is Script {
   function run() external {
     vm.startBroadcast();
     ChangeEmissionAdminPayload payload = new ChangeEmissionAdminPayload();
-    console.log('stMATIC & MATIC Emission Admin Payload address', address(payload));
+    console.log('stMATIC, MATIC, SD & LDO Emission Admin Payload address', address(payload));
     vm.stopBroadcast();
   }
 }
