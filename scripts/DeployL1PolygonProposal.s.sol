@@ -42,7 +42,7 @@ contract DeployChange is Script {
   function run() external {
     vm.startBroadcast();
     DeployL1PolygonProposal._deployL1Proposal(
-      0x4A6F570E2eAf30b0E0C3E61c030DBcdcfbE94692,
+      address(0), // TODO: replace with actual payload address
       bytes32(0) // TODO: replace with actual ipfshash
     );
     vm.stopBroadcast();
