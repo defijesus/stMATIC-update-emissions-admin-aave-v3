@@ -43,7 +43,7 @@ contract DeployChange is Script {
     vm.startBroadcast();
     DeployL1PolygonProposal._deployL1Proposal(
       0x7E8f833D23e19E88e3781Ca913d674a2D5178FA1,
-      bytes32(0) // TODO: replace with actual ipfshash
+      0x780a2b877ea3b13c924a30d2959ea0b8f0257799f1d4d743ed58f8783f529954
     );
     vm.stopBroadcast();
   }
